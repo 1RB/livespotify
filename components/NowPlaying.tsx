@@ -76,7 +76,9 @@ function AnimatedBars() {
 }
 
 export default function NowPlaying() {
-  const { data } = useSWR<NowPlayingSong>('/api/now-playing', fetcher);
+    const { data } = useSWR<NowPlayingSong>('/api/now-playing', fetcher, {
+        refreshInterval: 1000,
+      });      
 
   return (
       <div className="flex flex-col items-center space-y-1 w-full sm:w-auto">

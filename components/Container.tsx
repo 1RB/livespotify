@@ -39,7 +39,7 @@ export default function Container(props) {
       const response = await fetch('/api/now-playing');
       const data = await response.json();
       setNowPlaying(data);
-    }, 3000);
+    }, 1000);
     return () => clearInterval(interval);
   }, []);
   
