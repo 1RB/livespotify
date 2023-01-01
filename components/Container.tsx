@@ -35,18 +35,18 @@ export default function Container(props) {
 
   // After mounting, we have access to the theme
   useEffect(() => {
-    async function fetchNowPlaying() {
+    const interval = setInterval(async () => {
       const response = await fetch('/api/now-playing');
       const data = await response.json();
       setNowPlaying(data);
-    }
-
-    fetchNowPlaying();
+    }, 3000);
+    return () => clearInterval(interval);
   }, []);
+  
 
   const { children, ...customMeta } = props;
   const router = useRouter();
-  const title = nowPlaying ? `${nowPlaying.title} - ${nowPlaying.artist}` : 'Ray Spotify';
+  const title = nowPlaying && nowPlaying.title !== 'Untitled' ? `${nowPlaying.title} - ${nowPlaying.artist}` : 'Ray Spotify';
   const meta = {
     title,
     description: `See what Ray is listening to + most listened to songs.`,
