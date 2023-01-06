@@ -43,7 +43,6 @@ export default function Container(props) {
     return () => clearInterval(interval);
   }, []);
   
-
   const { children, ...customMeta } = props;
   const router = useRouter();
   const title = (nowPlaying && nowPlaying.title !== 'Untitled') || (nowPlaying && nowPlaying.title !== 'undefined')  ? `${nowPlaying.title} - ${nowPlaying.artist}` : 'Ray Spotify';
