@@ -7,6 +7,35 @@
   color: #fefefe;
 }
 
+/* Style the scrollbar */
+::-webkit-scrollbar {
+    width: 8px; /* Set the width of the scrollbar */
+    height: 8px; /* Set the height of the scrollbar */
+    border-radius: 4px; /* Make the scrollbar round */
+    background: transparent; /* Set the background to transparent */
+}
+
+/* Style the thumb (the part that you drag) */
+::-webkit-scrollbar-thumb {
+    border-radius: 4px; /* Make the thumb round */
+    background: #555; /* Set the thumb color */
+}
+
+/* Apply the scrollbar style to the body element */
+body::-webkit-scrollbar {
+    width: 8px; /* Set the width of the scrollbar */
+    height: 8px; /* Set the height of the scrollbar */
+    border-radius: 4px; /* Make the scrollbar round */
+    background: transparent; /* Set the background to transparent */
+}
+
+/* Apply the thumb style to the body element */
+body::-webkit-scrollbar-thumb {
+    border-radius: 4px; /* Make the thumb round */
+    background: #555; /* Set the thumb color */
+}
+
+
 html {
   min-width: 360px;
   scroll-behavior: smooth;

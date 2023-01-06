@@ -26,7 +26,7 @@ export default async function handler(req: NextRequest) {
         'content-type': 'application/json'
       }
     });
-  }
+    }
 
   const isPlaying = song.is_playing;
   const title = song.item.name;
@@ -34,15 +34,21 @@ export default async function handler(req: NextRequest) {
   const album = song.item.album.name;
   const albumImageUrl = song.item.album.images[0].url;
   const songUrl = song.item.external_urls.spotify;
+  const currentTimestamp = song.progress_ms;
+  const totalLength = song.timestamp;
 
+      // console.log((currentTimestamp / totalLength) * 1000000000)
+    
   return new Response(
     JSON.stringify({
       album,
       albumImageUrl,
       artist,
+      currentTimestamp,
       isPlaying,
       songUrl,
-      title
+      title,
+      totalLength
     }),
     {
       status: 200,

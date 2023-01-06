@@ -11,10 +11,15 @@ export type NowPlayingSong = {
   album: string;
   albumImageUrl: string;
   artist: string;
+  currentTimestamp: number;
   isPlaying: boolean;
+  totalLength: number;
   songUrl: string;
   title: string;
 };
+
+
+
 
 export type TopTracks = {
   tracks: Song[];

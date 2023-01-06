@@ -39,14 +39,14 @@ export default function Container(props) {
       const response = await fetch('/api/now-playing');
       const data = await response.json();
       setNowPlaying(data);
-    }, 1000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
   
 
   const { children, ...customMeta } = props;
   const router = useRouter();
-  const title = nowPlaying && nowPlaying.title !== 'Untitled' ? `${nowPlaying.title} - ${nowPlaying.artist}` : 'Ray Spotify';
+  const title = (nowPlaying && nowPlaying.title !== 'Untitled') || (nowPlaying && nowPlaying.title !== 'undefined')  ? `${nowPlaying.title} - ${nowPlaying.artist}` : 'Ray Spotify';
   const meta = {
     title,
     description: `See what Ray is listening to + most listened to songs.`,
